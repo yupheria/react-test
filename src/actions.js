@@ -9,5 +9,5 @@ const decrement = () => ({ type: 'DECREMENT' });
 const set = (value) => ({ type: 'SET', value });
 const reset = () => ({ type: 'RESET' });
 
-export {increment, decrement, reset, set};
-export default {increment, decrement, reset, set};
+export {increment, decrement, reset, set, };
+export default {increment, decrement, reset, set, };

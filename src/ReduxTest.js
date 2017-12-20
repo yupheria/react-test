@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { increment, decrement, reset, set } from './actions'
+import { increment, decrement, reset, set,  } from './actions'
 
 const mapStateToProps = state => ({
-  count: state
+  counter: state.counter, myTest: state.testVar
 })
 
 const mapDispatchToProps = (dispatch) => ({
   increment: () =>  dispatch(increment()) ,
   decrement: () =>  dispatch(decrement()) ,
   reset: () =>  dispatch(reset()) ,
-  set: (value) =>  dispatch(set(value)) 
+  set: (value) =>  dispatch(set(value)) ,
 })
 
 const ReduxTest = (store) =>(
@@ -37,7 +37,9 @@ const ReduxTest = (store) =>(
 					SET
 				</a>
 				<br /><br />
-				{store.count}
+				{store.counter}
+				 <br /> <br />
+				{store.myTest}
 			</div>
 			
     );

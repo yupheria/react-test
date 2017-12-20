@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 
 export const counter = (state = 0, action) => {
   switch (action.type) {
@@ -15,6 +15,11 @@ export const counter = (state = 0, action) => {
   }
 }
 
-let store = createStore(counter);
+export const testVar = () => {
+	return 'harharharh';
+}
+
+let tempStore = combineReducers({counter: counter, testVar: testVar});
+let store = createStore(tempStore);
 
 export default store;
