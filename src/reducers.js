@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 export const counter = (state = 0, action) => {
   switch (action.type) {
@@ -15,11 +16,27 @@ export const counter = (state = 0, action) => {
   }
 }
 
-export const testVar = () => {
-	return 'harharharh';
+export const testVar = (state = 'No Reply', action) => {
+	 switch (action.type) {
+		 case 'MYINIT' :
+			return action.value; 
+		 default :
+			return state;
+	 }
 }
 
-let tempStore = combineReducers({counter: counter, testVar: testVar});
-let store = createStore(tempStore);
+export const apiData = (state = 'asdasdasd', action) => {
+	switch (action.type) {
+		case 'SUCCESS' :
+			return action.value;
+		case 'FAIL' :
+			return action.value;
+		default :
+			return state;
+	}
+}
+
+let tempStore = combineReducers({counter: counter, testVar: testVar, apiData: apiData});
+let store = createStore(tempStore, applyMiddleware(thunk));
 
 export default store;

@@ -4,6 +4,7 @@ import ReduxTest from './ReduxTest';
 import store from './reducers';
 
 class Logout extends Component {
+  
   render() {
     return (
       <div>
